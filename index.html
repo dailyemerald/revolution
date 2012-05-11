@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="The new Oregon Daily Emerald">
+	<meta name="author" content="Ivar Vong/Oregon Daily Emerald">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/modernizr-2.5.3.min.js"></script>
+	
+	<script id="tplHeader" type="text/x-handlebars-template">
+		<h1>{{ flag }}</h1>
+		{{ logoURL }}
+		<p class="header">{{ summary }}</p>
+		
+		<ul class="nav">
+		{{#each pages}}
+			<li><a href="#{{ slug }}">{{ this.linktitle }}</a></li>
+		{{/each}}
+		</ul>
+	</script>
+	
+	<script id="tplPage" type="text/x-handlebars-template">
+		<h1>{{ headline }}</h1>
+		<div class="content">{{ content }}</div>
+	</script>
+	
+	<script id="tplFooter" type="text/x-handlebars-template">
+		{{ footer }}
+	</script>
+	
+</head>
+<body>
+
+	<header>
+	</header>
+
+	<div role="main">
+	</div>
+
+	<footer>
+	</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="./js/tabletop.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+<script src="./js/app.js"></script>
+
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
