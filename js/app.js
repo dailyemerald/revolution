@@ -2,18 +2,20 @@ window.windowCreated = new Date();
 
 $(document).ready(function() {
 	
-	window.docCreated = new Date();
+	// some load time metrics
+	window.docCreated = new Date(); 
 	
-	var spreadsheetKey = '0At5zQXh2AKd6dDh1TWp5NUYyRGRuYTBhQWdsSDNRZGc';	
+	// spin up tabletop. takes about half a second to get the doc from google and fire the callback
 	Tabletop.init({ 
-		key: spreadsheetKey,
+		key: '0At5zQXh2AKd6dDh1TWp5NUYyRGRuYTBhQWdsSDNRZGc',
 		callback: buildApp
 	});
 
+	// the templates are inline, so let's compile 'em. 
+	// TODO: CDN and precompiled.
 	window.tplHeader = Handlebars.compile($("#tplHeader").html());
 	window.tplPage   = Handlebars.compile($("#tplPage").html());
 	window.tplFooter = Handlebars.compile($("#tplFooter").html());
-
 });
 	
 
@@ -21,6 +23,7 @@ function buildApp(data, tabletop) {
 	
 	window.dataCreated = new Date();
 
+	// wrangle our google spreadsheet into useful structures
 	var header = {};
 	tabletop.models.header.elements.forEach(function(pair) {
 		header[pair.element] = pair.content;
@@ -43,12 +46,43 @@ function buildApp(data, tabletop) {
 		summary: header.summary, 
 		pages: pages
 	});
-	
 	$("header").html(headerHtml);
 	
+	window.pagesHtml = {};
+	pages.forEach(function(page) {
+		console.log(page);
+		var pageContentList = page.content.split("\n");
+		page.contentFormatted = pageContentList.join("<br>\n");
+		console.log(page);
+		var thisHtml = tplPage(page);
+		pagesHtml[page.slug] = thisHtml;
+	});
+	
+	//console.log(pagesHtml);
+	
+	// spin up the router from backbone to switch out the main div on hash changes
+	var AppRouter = Backbone.Router.extend({
+		routes: {
+			"!/*route": "defaultRoute",
+			"*route": "defaultRoute" //TODO: is there a cleaner way to do this?
+		},
+		defaultRoute: function(route) {
+			if (route == '') route = 'video'; //TODO: this is a hack. should it be the first page in the model?
+			console.log(route);
+			$("#"+route).addClass('active');
+			$("#content").html( pagesHtml[route] );
+		}
+	});
+	var app = new AppRouter;
+	Backbone.history.start();
+	
+	// more timing metrics, just curious on load time
+	// because the page is empty until this is done...
 	window.contentCreated = new Date();
 	
 	window.loadingPerformance = [docCreated-windowCreated, dataCreated-windowCreated, contentCreated-windowCreated];
+	
+	//TODO: send this back to the server to gauge how slow it really is.
 	console.log(loadingPerformance);
 }
 	

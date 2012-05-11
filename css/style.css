@@ -8,7 +8,7 @@ audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-html, button, input, select, textarea { font-family: sans-serif; background: #333; color: #FFF; }
+html, button, input, select, textarea { font-family: 'Exo', sans-serif; background: #333; color: #FFF; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -74,15 +74,74 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
+header, #content, footer {
+	width: 740px;
+	margin: 0 auto;
+}
+
+header {
+	position: relative;
+	height: 160px;
+}
+
 #flag {
-	font-size: 50px;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: -10px;
+	left: 0;
+}
+#flag a {
+	font-size: 80px;
+	color: #FFF;
+	text-decoration: none;
+}
+#logo {
+	position: absolute;
+	left: 230px;
+	top: 12px;
+}
+#summary {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 388px;
 }
 
-header, #main, footer {
-	border: 1px solid #666;
+#navigation { /* this is the ul */
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: table-row;
+	position: absolute;
+	top: 120px;
 }
 
+#navigation li {
+	list-style-type: none;
+	display: table-cell;
+	text-align: center;
+}
+#navigation a {
+	background: yellow;
+	color: #333;
+	
+	border-radius: 5px;
+	padding: 8px 20px; /* first is padding above/below; second is padding on left/right*/
+	margin-right: 20px;
+	border: 1px solid #333;
+	text-decoration: none;
+	font-size: 18px;
+}
 
+#navigation a:hover {
+	background: #333;
+	color: #FFF;
+	border: 1px solid yellow;
+}
+#navigation a.active {
+	background: blue;
+}
 
 
 
