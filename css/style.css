@@ -14,9 +14,9 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
+a { color: #FFF; }
+a:visited { color: #FFF; }
+a:hover { color: #FFF; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
@@ -82,6 +82,7 @@ header, #content, footer {
 header {
 	position: relative;
 	height: 160px;
+	margin-top: 20px;
 }
 
 #flag {
