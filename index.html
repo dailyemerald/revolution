@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title></title>
+	<title>Emerald Media Group | Future</title>
 	<meta name="description" content="The new Oregon Daily Emerald">
 	<meta name="author" content="Ivar Vong/Oregon Daily Emerald">
 
@@ -15,9 +15,10 @@
 	<script src="js/modernizr-2.5.3.min.js"></script>
 	
 	<script id="tplHeader" type="text/x-handlebars-template">
-		<h1 id="flag"><a href="#!/">{{ flag }}</a></h1>
+		<h1 id="flag"><a href="#!/">{{{ flag }}}</a></h1>
 		<div id="logo">{{{ logoURL }}}</div>
-		<p id="summary">{{ summary }}</p>
+		<h2 id="headertitle">{{{ title }}}</h2>
+		<p id="summary">{{{ summary }}}</p>
 		
 		<ul id="navigation">
 		{{#each pages}}
@@ -26,9 +27,17 @@
 		</ul>
 	</script>
 	
+	<script id="tplTitle" type="text/x-handlebars-template">
+		<h1>{{{ headline }}}</h1>
+	</script>
+	
 	<script id="tplPage" type="text/x-handlebars-template">
-		<h1>{{ headline }}</h1>
-		<div class="content">{{{ contentFormatted }}}</div>
+		<div class="subhead">{{{ subhead }}}</div>
+		<div class="content">
+			{{{ contentFormatted }}}
+			{{{ contentraw }}}
+		</div>
+		
 	</script>
 	
 	<script id="tplFooter" type="text/x-handlebars-template">
@@ -40,8 +49,13 @@
 
 	<header>
 	</header>
-
-	<div id="content">
+	
+	<div id="title">
+	</div>
+	
+	<div id="wrapper">
+		<div id="content">
+		</div>
 	</div>
 
 	<footer>
@@ -57,7 +71,7 @@
 
 <script type="text/javascript">
   WebFontConfig = {
-    google: { families: [ 'Exo::latin' ] }
+    google: { families: [ 'Exo:200,300,400,500,600,700,800,900:latin' ] }
   };
   (function() {
     var wf = document.createElement('script');
@@ -67,7 +81,8 @@
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
-  })(); </script>
+  })(); 
+</script>
 
 
 <script>

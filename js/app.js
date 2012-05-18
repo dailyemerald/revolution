@@ -14,6 +14,7 @@ $(document).ready(function() {
 	// the templates are inline, so let's compile 'em. 
 	// TODO: CDN and precompiled.
 	window.tplHeader = Handlebars.compile($("#tplHeader").html());
+	window.tplTitle  = Handlebars.compile($("#tplTitle").html());
 	window.tplPage   = Handlebars.compile($("#tplPage").html());
 	window.tplFooter = Handlebars.compile($("#tplFooter").html());
 });
@@ -44,19 +45,24 @@ function buildApp(data, tabletop) {
 		flag: header.flag, 
 		logoURL: header.logoURL, 
 		summary: header.summary, 
+		title: header.title,
 		pages: pages
 	});
 	$("header").html(headerHtml);
 	
 	window.pagesHtml = {};
+	window.titleHtml = {};
 	pages.forEach(function(page) {
-		console.log(page);
 		var pageContentList = page.content.split("\n");
 		page.contentFormatted = pageContentList.join("<br>\n");
+		page.contentRaw = page.contentRaw;
 		console.log(page);
-		var thisHtml = tplPage(page);
-		pagesHtml[page.slug] = thisHtml;
+		pagesHtml[page.slug] = tplPage(page);		
+		
+		titleHtml[page.slug] = tplTitle(page);
 	});
+	
+	console.log(pagesHtml);
 	
 	//console.log(pagesHtml);
 	
@@ -69,7 +75,9 @@ function buildApp(data, tabletop) {
 		defaultRoute: function(route) {
 			if (route == '') route = 'video'; //TODO: this is a hack. should it be the first page in the model?
 			console.log(route);
+			$("li").removeClass('active')
 			$("#"+route).addClass('active');
+			$("#title").html(   titleHtml[route] )
 			$("#content").html( pagesHtml[route] );
 		}
 	});
@@ -79,7 +87,6 @@ function buildApp(data, tabletop) {
 	// more timing metrics, just curious on load time
 	// because the page is empty until this is done...
 	window.contentCreated = new Date();
-	
 	window.loadingPerformance = [docCreated-windowCreated, dataCreated-windowCreated, contentCreated-windowCreated];
 	
 	//TODO: send this back to the server to gauge how slow it really is.

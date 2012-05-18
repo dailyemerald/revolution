@@ -8,15 +8,15 @@ audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-html, button, input, select, textarea { font-family: 'Exo', sans-serif; background: #333; color: #FFF; }
+html, button, input, select, textarea { font-family: 'Exo', sans-serif; font-weight: 300; background: #333; color: #FFF; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #AAA; color: #fff; text-shadow: none; }
+::selection { background: #AAA; color: #fff; text-shadow: none; }
 
-a { color: #FFF; }
-a:visited { color: #FFF; }
-a:hover { color: #FFF; }
+a { color: #333; font-family: 300;}
+a:visited { color: #333; }
+a:hover { color: #333; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
@@ -66,7 +66,6 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
 
 
@@ -74,39 +73,79 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
-header, #content, footer {
-	width: 740px;
+header, #title, #content, footer {
+	width: 940px;
 	margin: 0 auto;
+	font-weight: 200;
+}
+
+#content {
+	width: 860px;
+	font-family: "Helvetica Neue";
 }
 
 header {
 	position: relative;
 	height: 160px;
-	margin-top: 20px;
+	padding-top: 20px;
 }
 
-#flag {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	top: -10px;
-	left: 0;
+body {
+	background: #333;
 }
+
+#wrapper {
+	width: 100%;
+}
+
+#wrapper, #content {
+	background: #CCC;
+	color: #000;
+}
+
+#title {
+	padding-top: 25px;
+	padding-bottom: 10px;
+}
+
+#content {
+	padding: 40px;
+	background: #FFF;
+	font-weight: 200;
+}
+
+
+
 #flag a {
 	font-size: 80px;
-	color: #FFF;
 	text-decoration: none;
 }
+
 #logo {
 	position: absolute;
-	left: 230px;
-	top: 12px;
+	left: 0px;
+	top: 40px;
+	height: 160px;
+	width: auto;
 }
+
+#headertitle {
+	position: absolute;
+	left: 160px;
+	top: 37px;
+	font-size: 41px;
+}
+
 #summary {
 	position: absolute;
-	top: 0;
-	right: 0;
-	width: 388px;
+	top: 103px;
+	left: 160px;
+	width: 430px;
+	font-family: "Helvetica Neue";
+	font-size: 15px;
+	line-height: 18px;
+	color: #CCC;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);	
 }
 
 #navigation { /* this is the ul */
@@ -115,7 +154,8 @@ header {
 	padding: 0;
 	display: table-row;
 	position: absolute;
-	top: 120px;
+	top: 166px;
+	left: 150px;
 }
 
 #navigation li {
@@ -124,37 +164,63 @@ header {
 	text-align: center;
 }
 #navigation a {
-	background: yellow;
-	color: #333;
-	
+
 	border-radius: 5px;
 	padding: 8px 20px; /* first is padding above/below; second is padding on left/right*/
-	margin-right: 20px;
+	margin-left: 10px;
 	border: 1px solid #333;
 	text-decoration: none;
 	font-size: 18px;
+	line-height: 18px;
+	font-weight: 900;
+	letter-spacing: 0px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+	background: #333;
+	color: #CCC;
+	border: 2px solid #CCC;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+
 }
 
 #navigation a:hover {
-	background: #333;
+	border: 2px solid #fff034;
+	background: #fff034;
+	color: #333;
+
+}
+#navigation li.active {
+	/*background: #333;
 	color: #FFF;
-	border: 1px solid yellow;
-}
-#navigation a.active {
-	background: blue;
+	/border: 1px solid yellow;*/
 }
 
-
-
-
+h1 {
+	font-weight: 200;
+	font-size: 66px;
+	line-height: 62px;
+	letter-spacing: -1px;
+	text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+}
 
 
 /* =============================================================================
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (max-width: 730px) {
 	/* Style adjustments for viewports that meet the condition */
+	
+	header, #content, footer {
+		width: 100%;
+		margin: 0;
+		padding: 0 5px;
+	}
+	
+	#navigation ul {
+		width: 300px;
+	}
+	
 }
 
 /* =============================================================================
