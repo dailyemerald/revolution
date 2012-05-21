@@ -73,6 +73,7 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
+
 #headercontent, #title, #contentwrapper, footer {
 	width: 940px;
 	margin: 0 auto;
@@ -169,7 +170,7 @@ body {
 	padding: 0;
 	display: table-row;
 	position: absolute;
-	top: 166px;
+	top: 168px;
 	left: 146px;
 }
 
@@ -181,11 +182,11 @@ body {
 #navigation a {
 
 	border-radius: 5px;
-	padding: 8px 22px; /* first is padding above/below; second is padding on left/right*/
+	padding: 8px 20px; /* first is padding above/below; second is padding on left/right*/
 	margin-left: 13px;
 	border: 1px solid #333;
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 18px;
 	font-weight: 900;
 	letter-spacing: 0px;
@@ -199,8 +200,8 @@ body {
 }
 
 #navigation a:hover {
-	border: 2px solid #fff034;
-	background: #fff034;
+	border: 2px solid #b3cb49;
+	background: #b3cb49; /*#fff034*/
 	color: #333;
 
 }
@@ -218,7 +219,20 @@ h1 {
 	text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
 }
 
-
+#icon-twitter {
+	background: #000 url('../assets/twitterLight.png') no-repeat 20px 0;
+	display:block;
+}
+#icon-twitter:hover {
+	background-image: url('../assets/twitterDark.png');	
+}
+#icon-facebook {
+	background-image: url('../assets/facebookLight.png');
+}
+#icon-facebook:hover {
+	background-image: url('../assets/facebookDark.png');	
+	
+}
 
 .gradient {
 	/* Legacy browsers */
@@ -272,8 +286,9 @@ h1 {
 		padding: 0 5px;
 	}
 	
-	#navigation ul {
-		width: 300px;
+	#navigation a {
+		display: block;
+		width: 100%;
 	}
 	
 }

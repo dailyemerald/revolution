@@ -39,6 +39,11 @@ function buildApp(data, tabletop) {
 	tabletop.models.pages.elements.forEach(function(page) {
 		pages.push(page);
 	});
+	
+	var icons = [];
+	tabletop.models.icons.elements.forEach(function(icon) {
+		icons.push(icon);
+	});
 
 	// build header HTML
 	var headerHtml = tplHeader({
@@ -46,8 +51,11 @@ function buildApp(data, tabletop) {
 		logoURL: header.logoURL, 
 		summary: header.summary, 
 		title: header.title,
-		pages: pages
+		pages: pages,
+		icons: icons
 	});
+	console.log(headerHtml);
+	
 	$("#headercontent").html(headerHtml);
 	
 	window.pagesHtml = {};
@@ -76,7 +84,7 @@ function buildApp(data, tabletop) {
 			console.log(route);
 			$("li").removeClass('active')
 			$("#"+route).addClass('active');
-			$("#title").html(   titleHtml[route] )
+			$("#title").html( titleHtml[route] )
 			$("#contentwrapper").html( pagesHtml[route] );
 		}
 	});
@@ -89,6 +97,6 @@ function buildApp(data, tabletop) {
 	window.loadingPerformance = [docCreated-windowCreated, dataCreated-windowCreated, contentCreated-windowCreated];
 	
 	//TODO: send this back to the server to gauge how slow it really is.
-	console.log(loadingPerformance);
+	if (console) console.log(loadingPerformance);
 }
 	

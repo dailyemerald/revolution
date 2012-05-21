@@ -24,6 +24,11 @@
 		{{#each pages}}
 			<li id="{{ this.slug }}"><a href="#!/{{ this.slug }}">{{ this.linktitle }}</a></li>
 		{{/each}}
+		{{#each icons}}
+			<li id="icon-{{ this.slug }}">
+			  <a href="{{{ this.linkdest }}}" target="_blank"></a>
+			</li>
+		{{/each}}
 		</ul>
 	</script>
 	
