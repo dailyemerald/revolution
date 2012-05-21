@@ -48,14 +48,13 @@ function buildApp(data, tabletop) {
 		title: header.title,
 		pages: pages
 	});
-	$("header").html(headerHtml);
+	$("#headercontent").html(headerHtml);
 	
 	window.pagesHtml = {};
 	window.titleHtml = {};
 	pages.forEach(function(page) {
 		var pageContentList = page.content.split("\n");
 		page.contentFormatted = pageContentList.join("<br>\n");
-		page.contentRaw = page.contentRaw;
 		console.log(page);
 		pagesHtml[page.slug] = tplPage(page);		
 		
@@ -78,7 +77,7 @@ function buildApp(data, tabletop) {
 			$("li").removeClass('active')
 			$("#"+route).addClass('active');
 			$("#title").html(   titleHtml[route] )
-			$("#content").html( pagesHtml[route] );
+			$("#contentwrapper").html( pagesHtml[route] );
 		}
 	});
 	var app = new AppRouter;

@@ -32,8 +32,8 @@
 	</script>
 	
 	<script id="tplPage" type="text/x-handlebars-template">
-		<div class="subhead">{{{ subhead }}}</div>
-		<div class="content">
+		<div id="leader">{{{ leader }}}</div>
+		<div id="content">
 			{{{ contentFormatted }}}
 			{{{ contentraw }}}
 		</div>
@@ -47,14 +47,15 @@
 </head>
 <body>
 
-	<header>
+	<header  class="gradient">
+		<div id="headercontent" />
 	</header>
 	
 	<div id="title">
 	</div>
 	
 	<div id="wrapper">
-		<div id="content">
+		<div id="contentwrapper">
 		</div>
 	</div>
 
