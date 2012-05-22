@@ -99,6 +99,6 @@ function buildApp(data, tabletop) {
 	window.loadingPerformance = [docCreated-windowCreated, dataCreated-windowCreated, contentCreated-windowCreated];
 	
 	//TODO: send this back to the server to gauge how slow it really is.
-	if (console) //console.log(loadingPerformance);
+	//if (console) //console.log(loadingPerformance);
 }
 	
