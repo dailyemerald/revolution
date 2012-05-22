@@ -80,6 +80,11 @@ td { vertical-align: top; }
 	font-weight: 200;
 }
 
+h2 {
+ margin: 0;
+ padding: 0;
+}
+
 #content {
 	width: 860px;
 	font-family: "Helvetica Neue";
@@ -108,8 +113,8 @@ body {
 }
 
 #title {
-	padding-top: 25px;
-	padding-bottom: 10px;
+	padding-top: 50px;
+	padding-bottom: 0px;
 }
 
 #leader {
@@ -140,7 +145,7 @@ body {
 #logo {
 	position: absolute;
 	left: 0px;
-	top: 40px;
+	top: 20px;
 	height: 160px;
 	width: auto;
 }
@@ -154,8 +159,8 @@ body {
 
 #summary {
 	position: absolute;
-	top: 103px;
-	left: 160px;
+	top: 160px;
+	left: 3px;
 	width: 430px;
 	font-family: "Helvetica Neue";
 	font-size: 15px;
@@ -164,25 +169,39 @@ body {
 	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);	
 }
 
+#social {
+	position: absolute;
+	top: 176px;
+	left: 388px;
+}
+
+#social div {
+	float: left; 
+}
+
+#tweet-button {
+	margin-left: -15px;
+}
+
 #navigation { /* this is the ul */
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	display: table-row;
 	position: absolute;
-	top: 168px;
-	left: 146px;
+	top: 215px;
+	left: -10px;
 }
 
 #navigation li {
 	list-style-type: none;
-	display: table-cell;
+
 	text-align: center;
+	float: left;
 }
 #navigation a {
 
 	border-radius: 5px;
-	padding: 8px 20px; /* first is padding above/below; second is padding on left/right*/
+	padding: 8px 25px; /* first is padding above/below; second is padding on left/right*/
 	margin-left: 13px;
 	border: 1px solid #333;
 	text-decoration: none;
@@ -190,8 +209,6 @@ body {
 	line-height: 18px;
 	font-weight: 900;
 	letter-spacing: 0px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-
 	background: #333;
 	color: #CCC;
 	border: 2px solid #CCC;
@@ -220,11 +237,10 @@ h1 {
 }
 
 #icon-twitter {
-	background: #000 url('../assets/twitterLight.png') no-repeat 20px 0;
-	display:block;
+	background: #333 url('../assets/twitterLight.png') no-repeat 0 0;
 }
-#icon-twitter:hover {
-	background-image: url('../assets/twitterDark.png');	
+#icon-twitter:hover {	
+	background: #333 url('../assets/twitterDark.png') no-repeat 0 0;
 }
 #icon-facebook {
 	background-image: url('../assets/facebookLight.png');
@@ -280,15 +296,17 @@ h1 {
 @media only screen and (max-width: 730px) {
 	/* Style adjustments for viewports that meet the condition */
 	
-	header, #contentwrapper, footer {
+	header, #headercontent, #title, #contentwrapper, #content, footer, iframe, img {
 		width: 100%;
 		margin: 0;
 		padding: 0 5px;
 	}
 	
-	#navigation a {
-		display: block;
+	#navigation li {
+		float: none;
+		text-align: left;
 		width: 100%;
+		height: 45px;
 	}
 	
 }
