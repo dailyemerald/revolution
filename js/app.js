@@ -86,6 +86,8 @@ function buildApp(data, tabletop) {
 			$("#"+route).addClass('active');
 			$("#title").html( titleHtml[route] )
 			$("#contentwrapper").html( pagesHtml[route] );
+			
+			trackEvent(route); //this is on the main page, which hits _gaq.eventTracker
 		}
 	});
 	var app = new AppRouter;

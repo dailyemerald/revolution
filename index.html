@@ -103,10 +103,12 @@
 
 
 <script>
-	var _gaq=[['_setAccount','UA-31943511-1'],['_trackPageview']];
+	var _gaq=[['_setAccount','UA-31943511-1']];//,['_trackPageview']];//removed this because we using trackEvent from the backbone router instead
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 	s.parentNode.insertBefore(g,s)}(document,'script'));
+	
+	function trackEvent(route) { _gaq.push(['_trackEvent',route]); } //the backbone.js router throws the page out to this.
 </script>
 
 </body>
