@@ -121,7 +121,7 @@
 	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 	s.parentNode.insertBefore(g,s)}(document,'script'));
 	
-	function trackEvent(route) { _gaq.push(['_trackEvent',route]); } //the backbone.js router throws the page out to this.
+	function trackEvent(route) { _gaq.push(['_trackEvent',route, 'click']); } //the backbone.js router throws the page out to this.
 </script>
 
 </body>
