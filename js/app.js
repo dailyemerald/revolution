@@ -54,7 +54,7 @@ function buildApp(data, tabletop) {
 		pages: pages,
 		icons: icons
 	});
-	console.log(headerHtml);
+	//console.log(headerHtml);
 	
 	$("#headercontent").html(headerHtml);
 	
@@ -63,15 +63,15 @@ function buildApp(data, tabletop) {
 	pages.forEach(function(page) {
 		var pageContentList = page.content.split("\n");
 		page.contentFormatted = pageContentList.join("<br>\n");
-		console.log(page);
+		//console.log(page);
 		pagesHtml[page.slug] = tplPage(page);		
 		
 		titleHtml[page.slug] = tplTitle(page);
 	});
 	
-	console.log(pagesHtml);
-	
 	//console.log(pagesHtml);
+	
+	////console.log(pagesHtml);
 	
 	// spin up the router from backbone to switch out the main div on hash changes
 	var AppRouter = Backbone.Router.extend({
@@ -81,7 +81,7 @@ function buildApp(data, tabletop) {
 		},
 		defaultRoute: function(route) {
 			if (route == '') route = 'video'; //TODO: this is a hack. should it be the first page in the model?
-			console.log(route);
+			//console.log(route);
 			$("li").removeClass('active')
 			$("#"+route).addClass('active');
 			$("#title").html( titleHtml[route] )
@@ -99,6 +99,6 @@ function buildApp(data, tabletop) {
 	window.loadingPerformance = [docCreated-windowCreated, dataCreated-windowCreated, contentCreated-windowCreated];
 	
 	//TODO: send this back to the server to gauge how slow it really is.
-	if (console) console.log(loadingPerformance);
+	if (console) //console.log(loadingPerformance);
 }
 	
