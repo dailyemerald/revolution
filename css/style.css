@@ -296,18 +296,77 @@ h1 {
 @media only screen and (max-width: 730px) {
 	/* Style adjustments for viewports that meet the condition */
 	
-	header, #headercontent, #title, #contentwrapper, #content, footer, iframe, img {
+	header, #headercontent, #title, #contentwrapper, footer, iframe, #social, img, #summary, #navigation, #logo {
 		width: 100%;
+		height: auto;
 		margin: 0;
-		padding: 0 5px;
+		padding: 0;
+		position: static;
 	}
 	
+	#logo {
+		width: 96%;
+	}
+	
+
+
+	#headercontent, #title {
+		display: block;
+		padding: 0 2%;
+		width: 96%;
+		
+	}
+	
+	#content .skinny, img {
+		width: 100% !important;
+	}
+	
+	#content {
+		width: 96%;
+		padding: 2% 2%;		
+	}
+	
+	h1 {
+		display: block;
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	
+	header {
+		/*height: 120px;*/
+	}
+	
+	h1 {
+		line-height: 46px;
+	}
+	
+	#title h1 {
+		font-size: 34px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	
+	#social {
+		display: none;
+	}
+	
+	#navigation {
+		padding-top: 15px;
+	}
 	#navigation li {
 		float: none;
-		text-align: left;
 		width: 100%;
-		height: 45px;
+		display: block;
+		margin-bottom: 6px;
 	}
+	#navigation a {
+		display: block;
+		margin-left: 0;
+		position: static;
+		float: none;
+		text-align: left;
+	}
+	
 	
 }
 
